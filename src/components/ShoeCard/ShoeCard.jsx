@@ -34,6 +34,8 @@ const ShoeCard = ({
   return (
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
+        {variant === 'new-release' && <NewReleaseTag>Just Released</NewReleaseTag>}
+        {variant === 'on-sale' && <OnSaleTag>Sale</OnSaleTag>}
         <ImageWrapper>
           <Image alt="" src={imageSrc} />
         </ImageWrapper>
@@ -53,10 +55,35 @@ const ShoeCard = ({
 const Link = styled.a`
   text-decoration: none;
   color: inherit;
-  max-width: 300px;
+  min-width: 150px;
+  max-width: 400px;
+  flex: 1 1 300px;
+`;
+
+const NewReleaseTag = styled.div`
+  position: absolute;
+  top: 10px;
+  right: -5px;
+  background: ${COLORS.secondary};
+  color: white;
+  border-radius: 4px;
+  padding: 4px 8px;
+  z-index: 1;
+`;
+
+const OnSaleTag = styled.div`
+  position: absolute;
+  top: 10px;
+  right: -5px;
+  background: ${COLORS.primary};
+  color: white;
+  border-radius: 4px;
+  padding: 4px 8px;
+  z-index: 1;
 `;
 
 const Wrapper = styled.article`
+  position: relative;
 `;
 
 const ImageWrapper = styled.div`
@@ -65,10 +92,13 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
   width: 100%;
+  border-radius: 16px 16px 4px 4px;
 `;
 
 const Row = styled.div`
   font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Name = styled.h3`

@@ -36,7 +36,10 @@ const MainHeader = styled.div`
 `;
 
 const Nav = styled.nav`
-
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  width: 100%;
 `;
 
 const NavLink = styled.a`
